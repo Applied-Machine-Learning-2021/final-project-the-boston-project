@@ -15,7 +15,7 @@ Developed by:
 
 
 TA:
-- [Christian Powell](https://github.com/cbaker6) - `University of Kentucky`
+- [Christian Powell](http://github.com/cdpowell) - `University of Kentucky`
 
 ## Description
 <!--
