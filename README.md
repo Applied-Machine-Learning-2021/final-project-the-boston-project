@@ -2,16 +2,16 @@
 Name of your teams' final project
 -->
 # final-project
-## [National Action Council for Minorities in Engineering(NACME)](https://www.nacme.org) Google Applied Machine Learning Intensive (AMLI) at the `PARTICIPATING_UNIVERSITY`
+## [National Action Council for Minorities in Engineering(NACME)](https://www.nacme.org) Google Applied Machine Learning Intensive (AMLI) at the `University of Kentucky`
 
 <!--
 List all of the members who developed the project and
 link to each members respective GitHub profile
 -->
 Developed by: 
-- [Drew Butler](https://github.com/cbaker6) - `STUDENTS_UNIVERSITY`
-- [member2](https://github.com/cbaker6) - `STUDENTS_UNIVERSITY` 
-- [member3](https://github.com/cbaker6) - `STUDENTS_UNIVERSITY` 
+- [Drew Butler](https://github.com/drewbutler) - `University of Central Florida`
+- [Victoria Gomez-Small](https://github.com/Via104) - `Northeastern University` 
+- [Jordan Ogbu Felix](https://github.com/JordanOgbuFelix) - `University of California Davis` 
 - [member4](https://github.com/cbaker6) - `STUDENTS_UNIVERSITY`
 
 ## Description
