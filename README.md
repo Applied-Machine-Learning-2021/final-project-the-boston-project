@@ -11,8 +11,11 @@ link to each members respective GitHub profile
 Developed by: 
 - [Drew Butler](https://github.com/drewbutler) - `University of Central Florida`
 - [Victoria Gomez-Small](https://github.com/Via104) - `Northeastern University` 
-- [Jordan Ogbu Felix](https://github.com/JordanOgbuFelix) - `University of California Davis` 
-- [member4](https://github.com/cbaker6) - `STUDENTS_UNIVERSITY`
+- [Jordan Ogbu Felix](https://github.com/JordanOgbuFelix) - `University of California Davis`
+
+
+TA:
+- [Christian Powell](https://github.com/cbaker6) - `University of Kentucky`
 
 ## Description
 <!--
