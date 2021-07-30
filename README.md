@@ -13,6 +13,9 @@ Developed by:
 - [Victoria Gomez-Small](https://github.com/Via104) - `Northeastern University` 
 - [Jordan Ogbu Felix](https://github.com/JordanOgbuFelix) - `University of California Davis`
 
+![image](https://user-images.githubusercontent.com/85504234/127721641-08e9fdec-52be-4f4e-9c95-e491652bda30.png)
+
+
 
 TA:
 - [Christian Powell](http://github.com/cdpowell) - `University of Kentucky`
