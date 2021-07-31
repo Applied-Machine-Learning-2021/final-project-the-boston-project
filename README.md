@@ -21,12 +21,12 @@ TA:
 - [Christian Powell](http://github.com/cdpowell) - `University of Kentucky`
 
 ## Description
-<!--
+
 The goal of our project was to build a CNN that determines whether or not an area of land contained a cemetery or not. We used TensorFlow and to train our model with a sigmoid activation on the last layer of the model, and a 3 x 3 kenel_size. 
--->
+
 
 ## Usage instructions
-<!--
+
 absl-py==0.12.0
 alabaster==0.7.12
 albumentations==0.1.12
@@ -410,7 +410,7 @@ xlwt==1.3.0
 yellowbrick==0.9.1
 zict==2.0.0
 zipp==3.5.0
--->
+
 1. Fork this repo
 2. Change directories into your project
 3. On the command line, type `pip3 install requirements.txt`
