@@ -22,7 +22,7 @@ TA:
 
 ## Description
 <!--
-Give a short description on what your project accomplishes and what tools is uses. In addition, you can drop screenshots directly into your README file to add them to your README. Take these from your presentations.
+The goal of our project was to build a CNN that determines whether or not an area of land contained a cemetery or not. We used TensorFlow and to train our model with a sigmoid activation on the last layer of the model, and a 3 x 3 kenel_size. 
 -->
 
 ## Usage instructions
