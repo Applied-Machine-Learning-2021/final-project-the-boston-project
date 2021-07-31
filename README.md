@@ -21,6 +21,8 @@ TA:
 - [Christian Powell](http://github.com/cdpowell) - `University of Kentucky`
 
 ## Description
+
+Our project uses a convolutional neural network in order to make determine whether or not an image in Kentucky is a cemetery. 
 <!--
 Give a short description on what your project accomplishes and what tools is uses. In addition, you can drop screenshots directly into your README file to add them to your README. Take these from your presentations.
 -->
