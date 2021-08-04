@@ -50,4 +50,9 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(2, activation='sigmoid')
 ])```
 ```
+## Pictures 
+![image](https://user-images.githubusercontent.com/85504234/128245403-c96a3a25-3e8e-44c3-bd93-d5cb93bfc191.png)             ![image](https://user-images.githubusercontent.com/85504234/128245615-cd516118-32a6-4cbd-a03d-1e51faa1a029.png)      ![image](https://user-images.githubusercontent.com/85504234/128246305-da7b3e9b-d655-4ba4-b52d-677110a02ad1.png)    ![image](https://user-images.githubusercontent.com/85504234/128261489-badd28f0-dca3-46c6-a73b-a86bd1027fa5.png)
+
+
+
 
