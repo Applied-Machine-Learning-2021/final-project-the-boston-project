@@ -29,7 +29,7 @@ The goal of our project was to build a CNN that determines whether or not an are
 
 ## CNN features
 
-[```python
+[```
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(16, 3, padding='same', activation='relu',
                            input_shape=(100, 100, 3)),
