@@ -26,9 +26,13 @@ The goal of our project was to build a CNN that determines whether or not an are
 
 
 ## Usage instructions
-Upload .ipynb file into Google colab
+Upload CNN_(drew).ipynb file into Google colab
 
-(```drive.mount('/content/drive')```) [https://github.com/Applied-Machine-Learning-2021/final-project-the-boston-project/blob/14eb2aac206f922aa2e5f1cb6c775986bce0026c/CNN.py#L11]
+For this line to work properly you need to have aerial images uploded into your Google drive 
+```
+drive.mount('/content/drive')
+```
+
 
 ## CNN features
 
