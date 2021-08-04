@@ -29,7 +29,7 @@ The goal of our project was to build a CNN that determines whether or not an are
 
 ## CNN features
 
-[```
+```
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(16, 3, padding='same', activation='relu',
                            input_shape=(100, 100, 3)),
@@ -41,7 +41,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(2, activation='sigmoid')
-])```](https://github.com/Applied-Machine-Learning-2021/final-project-the-boston-project/blob/5d1358f0f33cf203646ebeadca3544e52249fb2a/CNN.py#L48-L59)
+])```
 
 1. Fork this repo
 2. Change directories into your project
