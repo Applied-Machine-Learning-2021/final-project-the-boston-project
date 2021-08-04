@@ -26,10 +26,13 @@ The goal of our project was to build a CNN that determines whether or not an are
 
 
 ## Usage instructions
+Upload .ipynb file into Google colab
+
+(```drive.mount('/content/drive')```) [https://github.com/Applied-Machine-Learning-2021/final-project-the-boston-project/blob/14eb2aac206f922aa2e5f1cb6c775986bce0026c/CNN.py#L11]
 
 ## CNN features
 
-[```
+```
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(16, 3, padding='same', activation='relu',
                            input_shape=(100, 100, 3)),
@@ -41,10 +44,6 @@ model = tf.keras.Sequential([
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(2, activation='sigmoid')
-])```]
+])```
+```
 
-
-1. Fork this repo
-2. Change directories into your project
-3. On the command line, type `pip3 install requirements.txt`
-4. ....
