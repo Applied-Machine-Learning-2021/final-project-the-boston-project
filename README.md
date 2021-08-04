@@ -41,8 +41,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(2, activation='sigmoid')
-])
-```](https://github.com/Applied-Machine-Learning-2021/final-project-the-boston-project/blob/5d1358f0f33cf203646ebeadca3544e52249fb2a/CNN.py#L48-L59)
+])```](https://github.com/Applied-Machine-Learning-2021/final-project-the-boston-project/blob/5d1358f0f33cf203646ebeadca3544e52249fb2a/CNN.py#L48-L59)
 
 1. Fork this repo
 2. Change directories into your project
