@@ -36,7 +36,7 @@ drive.mount('/content/drive')
 
 ## CNN features
 
-```
+```python
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(16, 3, padding='same', activation='relu',
                            input_shape=(100, 100, 3)),
@@ -49,5 +49,5 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(2, activation='sigmoid')
 ])```
-```
+
 
