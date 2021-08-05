@@ -26,7 +26,7 @@ The goal of our project was to build a CNN that determines whether or not an are
 
 
 ## Usage instructions
-Upload CNN_(drew).ipynb file into Google colab
+Upload CNN_.ipynb file into Google colab
 
 For this line to work properly you need to have aerial images uploded into your Google drive 
 ```
