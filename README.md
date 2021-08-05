@@ -13,16 +13,18 @@ Developed by:
 - [Victoria Gomez-Small](https://github.com/Via104) - `Northeastern University` 
 - [Jordan Ogbu Felix](https://github.com/JordanOgbuFelix) - `University of California Davis`
 
-![image](https://user-images.githubusercontent.com/85504234/127721641-08e9fdec-52be-4f4e-9c95-e491652bda30.png)
-
-
-
-TA:
+Machine Learning Advisor:
 - [Christian Powell](http://github.com/cdpowell) - `University of Kentucky`
 
-## Description
+Other Advisors:
+- [Dr.Elena Sesma](https://anthropology.as.uky.edu/users/ese230) - `University of Kentucky`
+- [Dr. Suzabbe Smith](https://www.engr.uky.edu/directory/smith-suzanne) - `University of Kentucky`
 
-The goal of our project was to build a CNN that determines whether or not an area of land contained a cemetery or not. We used TensorFlow and to train our model with a sigmoid activation on the last layer of the model, and a 3 x 3 kenel_size. 
+## Our Project
+
+Our project was originally started by an Dr.Sesma, doctor of Anthropology  and  Assistant Professor at the University of Kentucky. which specializations in African Diaspora and historical archaeology. For those who are not aware what archelogy is, it the study of human history and prehistory through the excavation of sites and the analysis of artifacts which include but are not limited to  maps and diaries , photographs or pictures and , and oral histories along  with physical remains from the deceased. One of the most common difficulties about archeology is that is  a destructive science. Once an  area is excavated  (where earth is moved  carefully and systematically from (an area) in order to find buried remains.), we can’t put things back the way we found them. Many of the  sites have been connected to marginalized communities, especially the African-American communities, which have been historically been destroyed in the process of countless development, expansion projects, or even for quests of truth. This eventually leads to question  "How  we can best mitigate the damage archeologists can do especially when trying to dig into the past.
+
+In efforts to solve this problem our time took up the task of  building  a Convolutional Neural Network (CNN) that determines whether or not an area of land contained a cemetery or not so archeologists can plan properly and mitigate damage through escavation. We used TensorFlow and to train our model with a sigmoid activation on the last layer of the model, and a 3 x 3 kenel_size. 
 
 
 ## Usage instructions
