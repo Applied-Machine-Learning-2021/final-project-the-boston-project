@@ -18,7 +18,7 @@ Machine Learning Advisor:
 
 Other Advisors:
 - [Dr.Elena Sesma](https://anthropology.as.uky.edu/users/ese230) - `University of Kentucky`
-- [Dr. Suzabbe Smith](https://www.engr.uky.edu/directory/smith-suzanne) - `University of Kentucky`
+- [Dr. Suzanne Smith](https://www.engr.uky.edu/directory/smith-suzanne) - `University of Kentucky`
 
 ## Our Project
 
