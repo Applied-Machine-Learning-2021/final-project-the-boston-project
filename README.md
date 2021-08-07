@@ -34,10 +34,19 @@ For this line to work properly you need to have aerial images uploded into your 
 ```
 drive.mount('/content/drive')
 ```
+## Uses Keras DirectoryIterator
+This function uses the keras open library to form a variable to train our CNN model. This chooses the specified directory that will eventually train the model to make predictions. 
 
+```
+train_image_iterator = tf.keras.preprocessing.image.DirectoryIterator(
+    target_size=(100, 100),
+    directory=train_dir,
+    batch_size=128,
+    image_data_generator=None)
+```
 
 ## CNN features
-
+These are the features that used to construct the CNN. We chose to use a 3x3 kernal size and sigmoid activation on the layer because we are dealing with binary classification.
 ```
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(16, 3, padding='same', activation='relu',
@@ -50,8 +59,25 @@ model = tf.keras.Sequential([
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(2, activation='sigmoid')
-])```
+])
 ```
+
+## Model features
+Compiling and training the model. 100 epochs are used to train based on the file size.
+```
+model.compile(optimizer='adam',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+
+history = model.fit(
+    train_image_iterator,
+    epochs=100,
+    shuffle=True
+)
+```
+
+
 ## Pictures 
 ![image](https://user-images.githubusercontent.com/85504234/128245403-c96a3a25-3e8e-44c3-bd93-d5cb93bfc191.png)             ![image](https://user-images.githubusercontent.com/85504234/128245615-cd516118-32a6-4cbd-a03d-1e51faa1a029.png)      ![image](https://user-images.githubusercontent.com/85504234/128246305-da7b3e9b-d655-4ba4-b52d-677110a02ad1.png)    ![image](https://user-images.githubusercontent.com/85504234/128261489-badd28f0-dca3-46c6-a73b-a86bd1027fa5.png)
 
