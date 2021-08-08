@@ -76,7 +76,94 @@ history = model.fit(
     shuffle=True
 )
 ```
+## Exploratory Data Analysis \ Main_(LiDAR_and_point_cloud_testing)
+Before we decided to use the images to train our model, we planned on using the lidar data we gathered from the kyfromabove website. downloaded one of the zipfile from the the site and uncompressed the .laz file from it into a .txt file using laszip.exe. As we were looking at the list of coordinates we took note that they were not ordered by x or y and were randomly placed. To fix this issue so that we could feed the data to our model we tried to create a structured array of x’s and y’s that were evenly spaced between the x and y minimum and maximum. then we would take all of the data points and place them into their corresponding bins and find the average z value of all the points that belonged to each bin.
 
+First we uploaded one of the .txt files into Google Colab and created a function that would open the file and placed the x y and z coordinates it contained into a pandas dataframe. 
+```
+def open_lidar(filename, verbose=False):
+    """Method for opening LiDAR text files and handling possible line errors
+    """
+    # open file and read in each line
+    with open(filename, "r") as f:
+        lines = f.readlines()
+
+    # iterate through lines to cast to lists of floats
+    new_lines = list()
+    for line in lines:
+
+        # in case file is corrupt 
+        try:
+            new_lines.append([float(val) for val in line.split()])
+
+        except Exception as e:
+            if verbose:  # printing only if verbose, ignore otherwise
+                print(line)
+
+    # convert nested list to pandas dataframe
+    new_lines = pd.DataFrame(new_lines)
+    new_lines = new_lines.rename(columns={0: "x", 1: "y", 2: "z"})
+
+    return new_lines
+```
+Then we calculated the maximum, minimum and scale for the x y and z values and placed these statistics into a dataframe. The scales were calculated by subtracting the minimum from the maximum of the x, y and z values.
+
+```
+#calculated the max values, the min, the scale(max-min) and the median value 
+max = lidar_df.max() 
+min = lidar_df.min()
+
+# organized the data into a list to be converted into a dataframe  
+lidar_stats = pd.DataFrame(
+    [min, max, max - min],
+    index=["min", "max", "scale"]
+)
+```
+Next were created a dataframe with columns that were numbers evenly space between the minimum nad maximum x and indecies that were numbers evenly space between the minimum and maximum y.
+```
+side = 2048
+increment = side / lidar_stats.loc["scale"]
+point_grid = pd.DataFrame(
+    index=[y for y in np.arange(lidar_stats["y"]["min"], lidar_stats["y"]["max"], increment["y"])],
+    columns=[x for x in np.arange(lidar_stats["x"]["min"], lidar_stats["x"]["max"], increment["x"])],
+)
+```
+lastly we created a function that would take in an x, y and list of nearby coordinated and calculated the average z values with the x and y of each 3d coordinated in the list acting as a weight. Then we used a for-loop to travese the dataframe and gather all of the lidar points that would belong in that cell.
+```
+#This function will help form a LiDAR grid with a proper set of consistent points
+def calc_elevation(x, y, nearby_data_points):
+  """Helper method for calculating the elevation based off nearby points.
+  """
+
+  # if not nearby_data_points:
+  #   return None
+
+  distances = [((val[0] - x)**2 + (val[1] - y)**2)**0.5 for val in nearby_data_points]
+  total_distance = len(distances)
+  return sum([val[2] * (distances[index]/total_distance) for index, val in enumerate(nearby_data_points)])
+
+
+gridded_df = pd.DataFrame(columns=np.arange(lidar_stats["x"]["min"], lidar_stats["x"]["max"], increment["x"]))
+
+for x in np.arange(lidar_stats["x"]["min"], lidar_stats["x"]["max"], increment["x"]):
+  for y in np.arange(lidar_stats["y"]["min"], lidar_stats["y"]["max"], increment["y"]):
+    values = lidar_df[
+                  
+                      (lidar_df["x"] >= x) & \
+                      (lidar_df["x"] <= (x + increment["x"])) & \
+                      (lidar_df["y"] >= y) & \
+                      (lidar_df["y"] <= (y + increment["y"]))
+                      ]
+    delete_indexes = values.index
+    lidar_df.drop(labels=delete_indexes, axis=0, inplace=True)
+
+    
+    gridded_df[x][y] = calc_elevation(x, y, values.values)
+
+    
+```
+
+This code was not very efficient and took too long to run thus we came up with another way of grouping and analyzing the dat
 
 ## Pictures 
 ![image](https://user-images.githubusercontent.com/85504234/128245403-c96a3a25-3e8e-44c3-bd93-d5cb93bfc191.png)             ![image](https://user-images.githubusercontent.com/85504234/128245615-cd516118-32a6-4cbd-a03d-1e51faa1a029.png)      ![image](https://user-images.githubusercontent.com/85504234/128246305-da7b3e9b-d655-4ba4-b52d-677110a02ad1.png)    ![image](https://user-images.githubusercontent.com/85504234/128261489-badd28f0-dca3-46c6-a73b-a86bd1027fa5.png)
