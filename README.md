@@ -196,7 +196,7 @@ ax.scatter3D(sample_data["x"], sample_data["y"], sample_data["z"])
 ax.view_init(60, 35)
 
 ```
-This code allowed us to group to group the Lidar coordinates that were nearby eachother that there were many groups with no points in them showing that there were many blank areas in the data 
+This code allowed us to group to group the Lidar coordinates that were nearby eachother that there were many groups with no points in them showing that there were many blank areas in the data.
 ```
 height = 2048
 width = 2048
