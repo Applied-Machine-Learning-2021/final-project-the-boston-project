@@ -77,7 +77,7 @@ history = model.fit(
 )
 ```
 ## Exploratory Data Analysis \ Main_(LiDAR_and_point_cloud_testing)
-Before we decided to use the images to train our model, we planned on using the lidar data we gathered from the kyfromabove website. downloaded one of the zipfile from the the site and uncompressed the .laz file from it into a .txt file using laszip.exe. As we were looking at the list of coordinates we took note that they were not ordered by x or y and were randomly placed. To fix this issue so that we could feed the data to our model we tried to create a structured array of x’s and y’s that were evenly spaced between the x and y minimum and maximum. then we would take all of the data points and place them into their corresponding bins and find the average z value of all the points that belonged to each bin.
+Before we decided to use the images to train our model, we planned on using the lidar data we gathered from the [kyfromabove website](https://kygeonet.maps.arcgis.com/home/webmap/viewer.html?webmap=ba05e691cf3a4acd9583b12ccf09856e). downloaded one of the zipfile from the the site and uncompressed the .laz file from it into a .txt file using laszip.exe. As we were looking at the list of coordinates we took note that they were not ordered by x or y and were randomly placed. To fix this issue so that we could feed the data to our model we tried to create a structured array of x’s and y’s that were evenly spaced between the x and y minimum and maximum. then we would take all of the data points and place them into their corresponding bins and find the average z value of all the points that belonged to each bin.
 
 First we uploaded one of the .txt files into Google Colab and created a function that would open the file and placed the x y and z coordinates it contained into a pandas dataframe. 
 ```
@@ -163,7 +163,64 @@ for x in np.arange(lidar_stats["x"]["min"], lidar_stats["x"]["max"], increment["
     
 ```
 
-This code was not very efficient and took too long to run thus we came up with another way of grouping and analyzing the dat
+This code was not very efficient and took too long to run thus we came up with another way of grouping and analyzing the data
+
+## Dealing with the Lidar Data
+
+In this colab we tried to create a visualization of the x,y,z coordinates of the lidar data within txt file converted from an laz file that we got from the kyfromeabove website. Then we attempted to create a heatmap to show the concentration of lidar data to check of there is a consistent and structured distribution of lidar data to possibly create a sliding window method to check for cemetaries in specific areas. 
+
+This function allowed us to view the lidar data
+
+```
+
+#view sample of the lidar data 
+from random import sample
+
+data = open_lidar("N092E301.txt")
+
+sample_data = data.sample(n=5000, random_state=1)
+
+
+from mpl_toolkits import mplot3d
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+
+ax.scatter3D(sample_data["x"], sample_data["y"], sample_data["z"])
+ax.view_init(60, 35)
+
+```
+
+These  functions allowed us to create a heatmap of the lidar points. 
+
+```
+
+#may take up to 20min to run
+for x in range(full_data.shape[0]):
+  x_dummy = full_data['X'].iloc[x]
+  y_dummy = full_data['Y'].iloc[x]
+  
+  x_index = ((x_dummy - int(x_min)) / round(x_increment)) - 1
+  y_index = ((y_dummy - int(y_min)) / round(y_increment)) - 1
+  empty_df.iloc[int(y_index), int(x_index)] = empty_df.iloc[int(y_index), int(x_index)] + 1
+
+```
+```
+def GroupLidarPoints(df, ind, col_1, col_2):
+  # for the x values
+  x = df[col_1].loc[ind]
+  x_group = int((x - x_min) / new_x_increment) + 1
+
+  # for the y values
+  y = df[col_2].loc[ind]
+  y_group = int((y - y_min) / new_y_increment)
+  return f'group {(y_group * width) + x_group}'
+  
+  ```
+ The heat map helped us understand the inconsistency in the  capture of lidar from the kyfromabove website. This encouraged us to come up with a new plan of action which then help us  determine if a location actually has a cemetery using our CNN instead.
 
 ## Pictures 
 ![image](https://user-images.githubusercontent.com/85504234/128245403-c96a3a25-3e8e-44c3-bd93-d5cb93bfc191.png)             ![image](https://user-images.githubusercontent.com/85504234/128245615-cd516118-32a6-4cbd-a03d-1e51faa1a029.png)      ![image](https://user-images.githubusercontent.com/85504234/128246305-da7b3e9b-d655-4ba4-b52d-677110a02ad1.png)    ![image](https://user-images.githubusercontent.com/85504234/128261489-badd28f0-dca3-46c6-a73b-a86bd1027fa5.png)
