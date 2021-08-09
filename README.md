@@ -20,7 +20,7 @@ Other Advisors:
 - [Dr.Elena Sesma](https://anthropology.as.uky.edu/users/ese230) - `University of Kentucky`
 - [Dr. Suzanne Smith](https://www.engr.uky.edu/directory/smith-suzanne) - `University of Kentucky`
 
-## Our Project
+## Background
 
 Our project was originally started by an Dr.Sesma, Doctor of Anthropology  and  Assistant Professor at the University of Kentucky, with specializations in African Diaspora and historical archaeology. For those who are not aware what archelogy is, it is the study of human history and prehistory through the excavation of sites and the analysis of artifacts which include but are not limited to  maps and diaries , photographs or pictures , and oral histories, along  with physical remains from the deceased. One of the most common difficulties about archeology is that it is  a destructive science. Once an area is excavated  (where earth is moved  carefully and systematically from (an area) in order to find buried remains.), we can’t put things back the way we found them. Many of the  sites have been connected to marginalized communities, especially from African-American communities, which have historically been destroyed in the process of countless development, expansion projects, or even for quests of truth. This eventually leads to question:  "How  we can best mitigate the damage archeologists do when excavating unknown cites and digging into the past?"
  
