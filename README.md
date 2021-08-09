@@ -196,8 +196,37 @@ ax.scatter3D(sample_data["x"], sample_data["y"], sample_data["z"])
 ax.view_init(60, 35)
 
 ```
+This code allowed us to group to group the Lidar coordinates that were nearby eachother that there were many groups with no points in them showing that there were many blank areas in the data 
+```
+height = 2048
+width = 2048
+i , j = 0, 0
+x = x_min
+y = y_min
+new_x_increment = (x_max - x_min) / height
+new_y_increment = (y_max - y_min) / height
+```
 
-These  functions allowed us to create a heatmap of the lidar points. 
+```
+# grouping function to be used by groupby method
+def GroupLidarPoints(df, ind, col_1, col_2):
+  # for the x values
+  x = df[col_1].loc[ind]
+  x_group = int((x - x_min) / x_increment) + 1
+
+  # for the y values
+  y = df[col_2].loc[ind]
+  y_group = int((y - y_min) / y_increment)
+  return f'group {(y_group * width) + x_group}'
+```
+
+```
+# grouping the lidar data
+grouped_lidar_df = full_data.groupby(lambda X: GroupLidarPoints(full_data, X, 'X', 'Y'))
+grouped_lidar_df.count()
+```
+
+This code allowed us to create a heatmap of the lidar points. 
 
 ```
 
@@ -211,19 +240,16 @@ for x in range(full_data.shape[0]):
   empty_df.iloc[int(y_index), int(x_index)] = empty_df.iloc[int(y_index), int(x_index)] + 1
 
 ```
-```
-def GroupLidarPoints(df, ind, col_1, col_2):
-  # for the x values
-  x = df[col_1].loc[ind]
-  x_group = int((x - x_min) / new_x_increment) + 1
 
-  # for the y values
-  y = df[col_2].loc[ind]
-  y_group = int((y - y_min) / new_y_increment)
-  return f'group {(y_group * width) + x_group}'
-  
-  ```
- The heat map helped us understand the inconsistency in the  capture of lidar from the kyfromabove website. This encouraged us to come up with a new plan of action which then help us  determine if a location actually has a cemetery using our CNN instead.
+```
+# Heatmap of the distribution of LiDAR points
+
+import seaborn as sns
+ax = sns.heatmap(empty_df, cmap='coolwarm')
+plt.show()
+```
+
+ The heat map helped us understand the inconsistency in the  capture of lidar from the kyfromabove website. This lead to our decision to use the images from the kyfromabove website as the data we would feed to our CNN model, instead of the images we would make from the x, y and z coordinates of the lidar data.  
 
 ## Pictures 
 ![image](https://user-images.githubusercontent.com/85504234/128245403-c96a3a25-3e8e-44c3-bd93-d5cb93bfc191.png)             ![image](https://user-images.githubusercontent.com/85504234/128245615-cd516118-32a6-4cbd-a03d-1e51faa1a029.png)      ![image](https://user-images.githubusercontent.com/85504234/128246305-da7b3e9b-d655-4ba4-b52d-677110a02ad1.png)    ![image](https://user-images.githubusercontent.com/85504234/128261489-badd28f0-dca3-46c6-a73b-a86bd1027fa5.png)
