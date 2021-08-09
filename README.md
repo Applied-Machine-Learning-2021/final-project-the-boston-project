@@ -22,8 +22,8 @@ Other Advisors:
 
 ## Our Project
 
-Our project was originally started by an Dr.Sesma, doctor of Anthropology  and  Assistant Professor at the University of Kentucky. which specializations in African Diaspora and historical archaeology. For those who are not aware what archelogy is, it the study of human history and prehistory through the excavation of sites and the analysis of artifacts which include but are not limited to  maps and diaries , photographs or pictures and , and oral histories along  with physical remains from the deceased. One of the most common difficulties about archeology is that is  a destructive science. Once an  area is excavated  (where earth is moved  carefully and systematically from (an area) in order to find buried remains.), we can’t put things back the way we found them. Many of the  sites have been connected to marginalized communities, especially the African-American communities, which have been historically been destroyed in the process of countless development, expansion projects, or even for quests of truth. This eventually leads to question  "How  we can best mitigate the damage archeologists can do especially when trying to dig into the past.
-
+Our project was originally started by an Dr.Sesma, Doctor of Anthropology  and  Assistant Professor at the University of Kentucky, with specializations in African Diaspora and historical archaeology. For those who are not aware what archelogy is, it is the study of human history and prehistory through the excavation of sites and the analysis of artifacts which include but are not limited to  maps and diaries , photographs or pictures , and oral histories, along  with physical remains from the deceased. One of the most common difficulties about archeology is that it is  a destructive science. Once an area is excavated  (where earth is moved  carefully and systematically from (an area) in order to find buried remains.), we can’t put things back the way we found them. Many of the  sites have been connected to marginalized communities, especially from African-American communities, which have historically been destroyed in the process of countless development, expansion projects, or even for quests of truth. This eventually leads to question:  "How  we can best mitigate the damage archeologists do when excavating unknown cites and digging into the past?"
+ 
 In efforts to solve this problem our team took up the task of  building  a Convolutional Neural Network (CNN) that determines whether or not an area of land contained a cemetery or not so archeologists can plan properly and mitigate damage through escavation. We used TensorFlow and to train our model with a sigmoid activation on the last layer of the model, and a 3 x 3 kenel_size. 
 
 
@@ -80,6 +80,7 @@ history = model.fit(
 Before we decided to use the images to train our model, we planned on using the lidar data we gathered from the [kyfromabove website](https://kygeonet.maps.arcgis.com/home/webmap/viewer.html?webmap=ba05e691cf3a4acd9583b12ccf09856e). downloaded one of the zipfile from the the site and uncompressed the .laz file from it into a .txt file using laszip.exe. As we were looking at the list of coordinates we took note that they were not ordered by x or y and were randomly placed. To fix this issue so that we could feed the data to our model we tried to create a structured array of x’s and y’s that were evenly spaced between the x and y minimum and maximum. then we would take all of the data points and place them into their corresponding bins and find the average z value of all the points that belonged to each bin.
 
 First we uploaded one of the .txt files into Google Colab and created a function that would open the file and placed the x y and z coordinates it contained into a pandas dataframe. 
+
 ```
 def open_lidar(filename, verbose=False):
     """Method for opening LiDAR text files and handling possible line errors
@@ -167,7 +168,9 @@ This code was not very efficient and took too long to run thus we came up with a
 
 ## Dealing with the Lidar Data
 
-In this colab we tried to create a visualization of the x,y,z coordinates of the lidar data within txt file converted from an laz file that we got from the kyfromeabove website. Then we attempted to create a heatmap to show the concentration of lidar data to check of there is a consistent and structured distribution of lidar data to possibly create a sliding window method to check for cemetaries in specific areas. 
+In this colab we tried to create a visualization of the x,y,z coordinates of the lidar data within txt file converted from an laz file that we got from the kyfromeabove website. Then we attempted to create a heatmap to show the concentration of lidar data to check of there is a consistent and structured distribution of lidar data to possibly create a sliding window method to check for cemetaries in specific areas.
+
+(make sure to download and upload the [text file](https://drive.google.com/file/d/1CnCDpMl9y4iup3bMu8QiCI4asl5WPkY_/view?usp=sharing) before running code)
 
 This function allowed us to view the lidar data
 
